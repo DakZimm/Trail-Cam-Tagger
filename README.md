@@ -6,7 +6,7 @@ Trail camera clip organizer: watch each video or photo, tag deer (points, left×
 ![Platforms](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)
 ![Python](https://img.shields.io/badge/python-3.10%2B-yellow)
 
-![Tagging a buck in Trail Cam Tagger](TrailCamTagger/screenshots/app_tagged.png)
+![Tagging a buck in Trail Cam Tagger](TrailCamTagger/docs/img/app_tagged.png)
 
 ```
 IMAG0042.AVI  →  2026-11-20_0614_Hilite_Buck-10pt-5x5-Droptine_Doe-x3_CAM2.avi
@@ -160,8 +160,9 @@ Tag data lives in `TrailCamTagger/tagger_data.json` (a `.bak` backup is kept nex
 
 ## Contributing
 
-Contributions are welcome: bug reports, ideas, documentation and code.
+Contributions are welcome: bug reports, ideas, documentation and code. **See [CONTRIBUTING.md](CONTRIBUTING.md)** for how to set up, the coding guidelines, testing and pull requests.
 
+- **Security problems:** please report privately as described in the [Security Policy](.github/SECURITY.md), not in a public issue.
 - **Bugs and ideas:** open an [issue](../../issues). For bugs, include your OS, Python version, what you did, and `TrailCamTagger/error_log.txt` if there is one.
 - **Code:** fork the repo, make your change on a branch, and open a pull request with a short description and how you tested it. Please keep changes focused and test on your OS.
 - **AI-assisted contributions are welcome.** Please mention in your pull request if AI tools helped write the change, and make sure you've read, understood and tested it yourself. Every pull request is reviewed by a person before it's merged.
@@ -182,6 +183,8 @@ python3 "Trail Cam Tagger.pyw"                          # Windows: double-click 
 | `TrailCamTagger/trailcam_tagger.py` | The app window (Tkinter): media viewer, tagging panel, Review, Animals, Settings |
 | `TrailCamTagger/tutorial.py` | Step-by-step guide and *What's this?* mode |
 | `Start on Mac.command`, `Start on Linux.sh`, `TrailCamTagger/Start Tagger.bat` | Platform starters |
+| `TrailCamTagger/docs/` | Source of Getting Started.pdf and screenshots |
+| `TrailCamTagger/tools/make_release.py` | Builds the release zip |
 
 Dependencies: Python 3.10+ with Tkinter, [opencv-python](https://pypi.org/project/opencv-python/), [Pillow](https://pypi.org/project/pillow/), [openpyxl](https://pypi.org/project/openpyxl/).
 

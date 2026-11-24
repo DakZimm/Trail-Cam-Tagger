@@ -1,0 +1,306 @@
+<!doctype html>
+<!--
+  Source of "Getting Started.pdf" (in the main Trail Cams folder).
+  To rebuild: open this file in Chrome or Edge > Print > Destination "Save as PDF",
+  More settings > tick "Background graphics" > Save over "Getting Started.pdf".
+  Pictures are in the img/ folder next to this file.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Trail Cam Tagger – Getting Started</title>
+<style>
+  @page { size: Letter; margin: 0.6in 0.65in; }
+  :root { --ink:#1f2328; --muted:#5d6670; --green:#2f5233; --accent:#c96a00; --soft:#f4f6f3; --line:#d8ddd6; --hl:#fff1c7; }
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", "DejaVu Sans", Arial, sans-serif; color: var(--ink); font-size: 10pt; line-height: 1.4; margin: 0; }
+  h1 { font-size: 24pt; margin: 0 0 2px; color: var(--green); letter-spacing: -0.3px; }
+  .sub { color: var(--muted); font-size: 11pt; margin: 0 0 14px; }
+  h2 { font-size: 14pt; color: var(--green); margin: 16px 0 6px; padding-bottom: 3px; border-bottom: 2px solid var(--line); break-after: avoid; }
+  h2 .n { display:inline-block; width: 24px; height: 24px; line-height: 24px; text-align:center; border-radius: 50%; background: var(--green); color:#fff; font-size: 11pt; margin-right: 8px; vertical-align: 2px; }
+  p { margin: 4px 0 8px; }
+  ol, ul { margin: 4px 0 8px; padding-left: 22px; }
+  li { margin: 2px 0; }
+  b.key, kbd { font-family: inherit; font-weight: 600; background: #eef0f2; border: 1px solid #cfd4d9; border-radius: 4px; padding: 0 5px; font-size: 9.5pt; }
+  code { font-family: "Consolas", "DejaVu Sans Mono", monospace; font-size: 9.3pt; background: var(--soft); padding: 1px 4px; border-radius: 3px; }
+  .card { background: var(--soft); border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; margin: 8px 0; break-inside: avoid; }
+  .tip { border-left: 4px solid var(--accent); background: #fff8ec; padding: 8px 12px; border-radius: 4px; margin: 8px 0; break-inside: avoid; }
+  .tip b:first-child { color: var(--accent); }
+  figure { margin: 10px 0 12px; break-inside: avoid; }
+  figure img { width: 100%; border: 1px solid #b9c0c7; border-radius: 6px; display: block; }
+  figcaption { font-size: 9pt; color: var(--muted); margin-top: 4px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+  table { border-collapse: collapse; width: 100%; margin: 6px 0 10px; font-size: 9.2pt; }
+  tr { break-inside: avoid; }
+  th, td { border: 1px solid var(--line); padding: 3px 7px; text-align: left; vertical-align: top; }
+  th { background: var(--green); color: #fff; font-weight: 600; }
+  .page-break { break-before: page; }
+  /* ---------- drawn illustrations ---------- */
+  .win { border: 1px solid #9aa3ab; border-radius: 6px; overflow: hidden; background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.08); break-inside: avoid; }
+  .win .bar { background: #e8ebee; padding: 4px 10px; font-size: 9pt; color: #333; border-bottom: 1px solid #c7cdd2; }
+  .win .body { padding: 12px 14px; }
+  .callout { position: relative; outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+  .bubble { display: inline-block; background: var(--accent); color: #fff; font-weight: 600; font-size: 9pt; padding: 2px 8px; border-radius: 10px; margin-left: 8px; }
+  .pybtn { display:inline-block; background:#ffd343; border:1px solid #d9a800; color:#222; font-weight:700; padding:7px 14px; border-radius:5px; }
+  .chk { display:inline-block; width: 13px; height: 13px; border: 1.5px solid #555; border-radius: 2px; vertical-align: -2px; margin-right: 6px; position: relative; background:#fff; }
+  .chk.on::after { content:"✓"; position:absolute; left:1px; top:-4px; font-size:12px; font-weight:700; color:#1a5fb4; }
+  .bigopt { border: 1px solid #c7cdd2; border-radius: 4px; padding: 7px 10px; margin: 6px 0; font-size: 9.5pt; }
+  .bigopt b { color: #1a5fb4; }
+  .menu { display:inline-block; border:1px solid #9aa3ab; background:#fff; border-radius:4px; box-shadow: 2px 3px 6px rgba(0,0,0,.12); font-size: 9.5pt; min-width: 150px; }
+  .menu div { padding: 4px 12px; }
+  .menu .sel { background: #d0e4f7; }
+  .tree { font-family: "Segoe UI", "DejaVu Sans", Arial, sans-serif; font-size: 10pt; line-height: 1.65; }
+  .tree .row { display: grid; grid-template-columns: 255px 1fr; align-items: center; }
+  .tree .item { white-space: nowrap; }
+  .tree .ind1 { padding-left: 22px; } .tree .ind2 { padding-left: 44px; } .tree .ind3 { padding-left: 66px; }
+  .tree .note { color: var(--muted); font-size: 9.3pt; border-left: 2px solid var(--line); padding-left: 8px; }
+  .tree .note.key { color: var(--ink); font-weight: 600; border-left-color: var(--accent); }
+  .ico { display:inline-block; width: 17px; height: 13px; margin-right: 6px; vertical-align: -1px; border-radius: 2px; }
+  .fold { background: #f1c453; border: 1px solid #c99a28; }
+  .file { width: 12px; height: 15px; background: #fff; border: 1px solid #8c959d; vertical-align: -3px; }
+  .file.py { background: #3776ab; border-color:#2b5b84; }
+  .file.xl { background: #1d6f42; border-color:#145230; }
+  .file.pdf { background: #c0392b; border-color:#8e2a20; }
+  .flow { display:flex; align-items:center; gap: 10px; justify-content: center; margin: 6px 0; flex-wrap: nowrap; }
+  .flow .box { border: 1px solid #9aa3ab; border-radius: 6px; background:#fff; padding: 8px 10px; font-size: 9.5pt; text-align:center; min-width: 120px; }
+  .flow .arrow { font-size: 18pt; color: var(--accent); font-weight: 700; }
+  .small { font-size: 9.2pt; color: var(--muted); }
+  .fname { font-family: "Consolas","DejaVu Sans Mono",monospace; font-size: 8.8pt; }
+
+  .legend { font-size: 9.6pt; margin: 6px 0 4px; }
+  .os { display:inline-block; color:#fff; font-weight:700; font-size:8.3pt; letter-spacing:.6px; padding:1px 8px; border-radius:9px; vertical-align: 1px; }
+  .os.sm { font-size:7.4pt; padding:0 6px; margin-right:4px; }
+  .os-win { background:#0067b8; } .os-mac { background:#3a3a3c; } .os-lin { background:#7b3fa0; }
+  .osblock { border-left: 5px solid; border-radius: 4px; padding: 6px 12px 4px; margin: 8px 0; }
+  .osblock.keep { break-inside: avoid; }
+  .osblock ol, .osblock p { margin: 3px 0 6px; }
+  .oshead { margin-bottom: 2px; }
+  .os-win-b { border-color:#0067b8; background:#f0f6fc; }
+  .os-mac-b { border-color:#3a3a3c; background:#f4f4f5; }
+  .os-lin-b { border-color:#7b3fa0; background:#f7f1fa; }
+  .oslines div { margin: 4px 0; padding-left: 2px; }
+  .oslines .os { width: 74px; text-align:center; margin-right: 8px; }
+</style>
+
+</head>
+<body>
+
+<h1>Trail Cam Tagger</h1>
+<p class="sub">Getting started: what to download, how to set it up, and your first tagged clip. About 10 minutes.</p>
+
+<div class="card">
+  <b>What it does:</b> you copy your trail camera SD cards into one folder, watch each clip in the program,
+  click the animals you see, and it renames and files every clip for you, e.g.
+  <span class="fname">2026-11-20_0614_Buck-10pt-5x5-Droptine_CAM1.avi</span>, and keeps a spreadsheet of everything.
+</div>
+
+<div class="legend">Steps that are different on each kind of computer are marked
+  <span class="os os-win">WINDOWS</span> <span class="os os-mac">MAC</span> <span class="os os-lin">LINUX</span>.
+  Just follow the one for your computer and skip the others.</div>
+
+<h2><span class="n">1</span>What you need</h2>
+<table>
+  <tr><th style="width:30%">Item</th><th>Details</th></tr>
+  <tr><td><b>A computer</b></td><td>Windows 10 or 11, a Mac, or a Linux computer. Your clips can live on the computer, a USB drive or a network drive (NAS).</td></tr>
+  <tr><td><b>Python</b> (free)</td><td>The engine the program runs on. You install it once, in step 2.</td></tr>
+  <tr><td><b>Internet, the first time only</b></td><td>On its first start the program downloads three free add-ons (video player, image tools, spreadsheet writer). After that it works offline.</td></tr>
+  <tr><td><b>The Trail Cams zip file</b></td><td>The program itself, already set up with its folders.</td></tr>
+  <tr><td><b>A spreadsheet app</b> (optional)</td><td>To open <code>Clip Log.xlsx</code>: Excel, Numbers (Mac), LibreOffice, or upload it to Google Sheets.</td></tr>
+</table>
+
+<h2><span class="n">2</span>Install Python (one time)</h2>
+<div class="osblock os-win-b">
+  <div class="oshead"><span class="os os-win">WINDOWS</span></div>
+  <ol>
+    <li>Go to <b>https://www.python.org/downloads/</b> and click the yellow <b>Download Python 3…</b> button (version 3.10 or newer). Use python.org, not the Microsoft Store.</li>
+    <li>Open the downloaded file (it's in your <i>Downloads</i> folder).</li>
+    <li><b>Important:</b> on the first screen, tick <b>“Add python.exe to PATH”</b> at the bottom, then click <b>Install Now</b>.</li>
+    <li>When it says <i>Setup was successful</i>, click <b>Close</b>.</li>
+  </ol>
+  <div class="grid2">
+    <figure>
+      <div class="win"><div class="bar">python.org/downloads</div>
+        <div class="body" style="text-align:center; padding:16px 14px;">
+          <div style="font-size:11.5pt; font-weight:600; margin-bottom:10px;">Download the latest version for Windows</div>
+          <span class="pybtn callout">Download Python 3.x.x</span>
+        </div></div>
+      <figcaption>The download page. Click the yellow button.</figcaption>
+    </figure>
+    <figure>
+      <div class="win"><div class="bar">Python 3.x.x (64-bit) Setup</div>
+        <div class="body">
+          <div style="font-weight:600; font-size:10.5pt; margin-bottom:5px;">Install Python 3.x.x (64-bit)</div>
+          <div class="bigopt"><b>→ Install Now</b><br><span class="small">Installs with default settings</span></div>
+          <div class="bigopt"><b>→ Customize installation</b></div>
+          <div style="margin-top:8px; font-size:9.3pt;"><span class="chk on"></span>Use admin privileges when installing py.exe</div>
+          <div style="margin-top:6px; font-size:9.3pt;"><span class="callout" style="padding:1px 4px;"><span class="chk on"></span><b>Add python.exe to PATH</b></span><span class="bubble">Tick this!</span></div>
+        </div></div>
+      <figcaption>First installer screen (simplified drawing). Tick “Add python.exe to PATH”, then Install Now.</figcaption>
+    </figure>
+  </div>
+</div>
+<div class="osblock os-mac-b keep">
+  <div class="oshead"><span class="os os-mac">MAC</span></div>
+  <ol>
+    <li>Go to <b>https://www.python.org/downloads/</b> and click the yellow <b>Download Python 3…</b> button. It gives you the macOS installer.</li>
+    <li>Open the downloaded <code>.pkg</code> file and click <b>Continue</b> / <b>Agree</b> / <b>Install</b> through the screens (enter your Mac password when asked).</li>
+    <li>When it finishes, close the installer. (It may open a Python folder in Finder; you can close that too.)</li>
+  </ol>
+</div>
+<div class="osblock os-lin-b keep">
+  <div class="oshead"><span class="os os-lin">LINUX</span></div>
+  <p>Python is usually already there, but the window toolkit and venv pieces often aren't. Open a terminal and run:</p>
+  <p>Ubuntu, Mint, Debian: <code>sudo apt install python3 python3-tk python3-venv</code><br>
+     Fedora: <code>sudo dnf install python3 python3-tkinter</code></p>
+</div>
+
+<h2><span class="n">3</span>Unzip the Trail Cams folder</h2>
+<div class="osblock os-win-b">
+  <div class="oshead"><span class="os os-win">WINDOWS</span></div>
+  <ol>
+    <li>Find <code>Trail Cams.zip</code> (usually in <i>Downloads</i>).</li>
+    <li><b>Right-click</b> it → <b>Extract All…</b> → choose where to put it (Desktop or Documents are fine, or a NAS or USB drive) → <b>Extract</b>.</li>
+  </ol>
+  <div class="flow">
+    <div class="box"><span class="ico file" style="background:#f6e7a6;border-color:#b9a250"></span><b>Trail Cams.zip</b><br><span class="small">downloaded file</span></div>
+    <div class="arrow">→</div>
+    <div class="menu"><div>Open</div><div class="sel"><b>Extract All…</b></div><div>Send to</div><div>Copy</div></div>
+    <div class="arrow">→</div>
+    <div class="box"><span class="ico fold"></span><b>Trail Cams</b><br><span class="small">your working folder</span></div>
+  </div>
+  <p class="small"><b>Don't skip Extract All.</b> Windows lets you look inside a zip without extracting it, but the program can't run from inside the zip.</p>
+</div>
+<div class="osblock os-mac-b keep">
+  <div class="oshead"><span class="os os-mac">MAC</span></div>
+  <p>Double-click <code>Trail Cams.zip</code> in <i>Downloads</i>. A <b>Trail Cams</b> folder appears next to it. Drag that folder wherever you want to keep it (e.g. Documents).</p>
+</div>
+<div class="osblock os-lin-b keep">
+  <div class="oshead"><span class="os os-lin">LINUX</span></div>
+  <p>Right-click <code>Trail Cams.zip</code> → <b>Extract Here</b>, or in a terminal: <code>unzip "Trail Cams.zip"</code>. Move the <b>Trail Cams</b> folder wherever you like.</p>
+</div>
+<p>You can rename or move the <b>Trail Cams</b> folder later; everything inside keeps working.</p>
+
+<h2><span class="n">4</span>What's in the folder</h2>
+<div class="card tree">
+  <div class="row"><div class="item"><span class="ico fold"></span><b>Trail Cams</b></div><div class="note">The main folder. Keep everything together in here.</div></div>
+  <div class="row"><div class="item ind1"><span class="ico file py"></span><b>Trail Cam Tagger.pyw</b></div><div class="note key"><span class="os os-win sm">WINDOWS</span> ★ Double-click to start the program.</div></div>
+  <div class="row"><div class="item ind1"><span class="ico file"></span><b>Start on Mac.command</b></div><div class="note key"><span class="os os-mac sm">MAC</span> ★ Double-click to start the program.</div></div>
+  <div class="row"><div class="item ind1"><span class="ico file"></span><b>Start on Linux.sh</b></div><div class="note key"><span class="os os-lin sm">LINUX</span> ★ Run to start the program.</div></div>
+  <div class="row"><div class="item ind1"><span class="ico file xl"></span>Clip Log.xlsx</div><div class="note">The spreadsheet of every clip and animal. Made automatically.</div></div>
+  <div class="row"><div class="item ind1"><span class="ico file pdf"></span>Getting Started.pdf</div><div class="note">This guide.</div></div>
+  <div class="row"><div class="item ind1"><span class="ico file"></span>README.md</div><div class="note">Quick reference for every feature.</div></div>
+  <div class="row"><div class="item ind1"><span class="ico fold"></span><b>Raw</b></div><div class="note key">★ Your inbox: copy SD cards in here, one folder per camera.</div></div>
+  <div class="row"><div class="item ind2"><span class="ico fold"></span>CAM1, CAM2, CAM3, CAM4</div><div class="note">Rename them (e.g. <i>EastRidge</i>) or add more (CAM5) any time.</div></div>
+  <div class="row"><div class="item ind1"><span class="ico fold"></span><b>Output</b></div><div class="note key">★ Tagged clips end up here, renamed, by camera.</div></div>
+  <div class="row"><div class="item ind2"><span class="ico fold"></span>CAM1, CAM2, …</div><div class="note">Clips with animals.</div></div>
+  <div class="row"><div class="item ind3"><span class="ico fold"></span>Empty</div><div class="note">Clips with nothing in them.</div></div>
+  <div class="row"><div class="item ind1"><span class="ico fold"></span>TrailCamTagger</div><div class="note">Program files, settings and your tag data. You never need to open it.</div></div>
+</div>
+<p class="small">Each camera folder in Raw has a matching folder in Output. Make a new folder on either side and the program creates its partner and adds it to the camera list.</p>
+
+<h2><span class="n">5</span>Start the program for the first time</h2>
+<div class="osblock os-win-b">
+  <div class="oshead"><span class="os os-win">WINDOWS</span></div>
+  <p>Double-click <b>Trail Cam Tagger.pyw</b>.
+  <span class="small">Handy: right-click it → <b>Show more options</b> → <b>Send to</b> → <b>Desktop (create shortcut)</b> to start it from your desktop.</span></p>
+</div>
+<div class="osblock os-mac-b keep">
+  <div class="oshead"><span class="os os-mac">MAC</span></div>
+  <p>Double-click <b>Start on Mac.command</b>. The very first time macOS may say it can't be opened: <b>right-click</b> it → <b>Open</b> → <b>Open</b> (only needed once).
+  A Terminal window opens alongside the program; leave it open while you work.</p>
+</div>
+<div class="osblock os-lin-b keep">
+  <div class="oshead"><span class="os os-lin">LINUX</span></div>
+  <p>Double-click <b>Start on Linux.sh</b> and choose <b>Run</b> (or <i>Run as a Program</i>). If it opens in a text editor instead, run it from a terminal inside the Trail Cams folder: <code>./"Start on Linux.sh"</code></p>
+</div>
+<p><b>Then, on every computer:</b> the very first time, a small window installs the add-ons. Wait a minute or two; it closes by itself.
+The program opens and a <b>step-by-step guide</b> starts. Click <b>Next ▶</b> to follow it, or <b>Close</b> to try on your own.</p>
+<div class="grid2" style="grid-template-columns: 0.85fr 2.15fr;">
+  <figure>
+    <div class="win"><div class="bar">Trail Cam Tagger</div><img src="img/app_installing.png" style="border:0;border-radius:0;"></div>
+    <figcaption>First start only: installing the free add-ons.</figcaption>
+  </figure>
+  <figure>
+    <img src="img/app_welcome.png">
+    <figcaption>The program with the step-by-step guide. Bring it back any time with <b>❓ Tutorial</b> (top right).</figcaption>
+  </figure>
+</div>
+
+<h2><span class="n">6</span>Tag your first clip</h2>
+<div class="flow" style="margin-bottom:10px;">
+  <div class="box">💾 <b>SD card</b><br><span class="small">DCIM\100MEDIA</span></div>
+  <div class="arrow">→ copy →</div>
+  <div class="box"><span class="ico fold"></span><b>Raw\CAM1</b><br><span class="small">that camera's folder</span></div>
+  <div class="arrow">→ tag →</div>
+  <div class="box"><span class="ico fold"></span><b>Output\CAM1</b><br><span class="small">renamed &amp; filed</span></div>
+</div>
+<p><b>Copy</b> the clips from the SD card into <code>Raw\CAM1</code> (or the camera they came from):</p>
+<div class="oslines">
+  <div><span class="os os-win">WINDOWS</span> In File Explorer: select all (<kbd>Ctrl</kbd>+<kbd>A</kbd>), <kbd>Ctrl</kbd>+<kbd>C</kbd>, open the Raw folder, <kbd>Ctrl</kbd>+<kbd>V</kbd>.</div>
+  <div><span class="os os-mac">MAC</span> In Finder: select all (<kbd>⌘</kbd>+<kbd>A</kbd>), <kbd>⌘</kbd>+<kbd>C</kbd>, open the Raw folder, <kbd>⌘</kbd>+<kbd>V</kbd>.</div>
+  <div><span class="os os-lin">LINUX</span> In your file manager: <kbd>Ctrl</kbd>+<kbd>A</kbd>, <kbd>Ctrl</kbd>+<kbd>C</kbd>, open the Raw folder, <kbd>Ctrl</kbd>+<kbd>V</kbd>.</div>
+</div>
+<p><b>Then, on every computer:</b></p>
+<ol>
+  <li>In the program, pick the camera from the <b>Camera</b> list at the top. The first clip starts playing.</li>
+  <li><b>Click each animal you see.</b> A line appears for each one. For a buck, fill in Left and Right points (the total fills itself in) and give him a nickname if you like.</li>
+  <li>Click <b>★ Hilite</b> for a great clip. <b>Notes</b> go in the spreadsheet.</li>
+  <li>Press <b>Save &amp; Next</b> (or <kbd>Enter</kbd>). Nothing in the clip? Press <b>Empty</b> (<kbd>E</kbd>). Made a mistake? <b>Undo</b> (<kbd>Ctrl</kbd>+<kbd>Z</kbd>; on a Mac <kbd>⌘</kbd>+<kbd>Z</kbd> works too).</li>
+</ol>
+<figure style="width:88%; margin-left:auto; margin-right:auto;">
+  <img src="img/app_tagged.png">
+  <figcaption>A buck tagged with points, a nickname and Hilite. “New file name” shows exactly what the clip will be called.</figcaption>
+</figure>
+
+<h2><span class="n">7</span>Where your clips go</h2>
+<div class="card tree">
+  <div class="row"><div class="item"><span class="ico fold"></span>Output\CAM1</div><div></div></div>
+  <div class="row"><div class="item ind1"><span class="ico file"></span><span class="fname">2026-11-20_0614_Hilite_Buck-10pt-5x5-Droptine_CAM1.jpg</span></div><div></div></div>
+  <div class="row"><div class="item ind1"><span class="ico fold"></span>Empty</div><div></div></div>
+  <div class="row"><div class="item ind2"><span class="ico file"></span><span class="fname">2026-11-20_1831_Empty_CAM1.jpg</span></div><div></div></div>
+</div>
+<ul>
+  <li>Names start with the <b>date and time</b>, so the folder keeps them in order.</li>
+  <li><b>Clip Log.xlsx</b> in the Trail Cams folder lists every clip, one row per animal, with filters ready to use.</li>
+  <li>Delete old clips or empties whenever you like. The program notices, and keeps their history in the spreadsheet.</li>
+</ul>
+<p><b>To find clips</b>, open <b>Output</b> and search for <code>Buck</code>, <code>10pt</code>, <code>Droptine</code>, <code>Hilite</code>, <code>CAM2</code>…</p>
+<div class="oslines">
+  <div><span class="os os-win">WINDOWS</span> Type in File Explorer's search box (top right).</div>
+  <div><span class="os os-mac">MAC</span> In Finder press <kbd>⌘</kbd>+<kbd>F</kbd>, choose <b>“Output”</b> (not “This Mac”), and type.</div>
+  <div><span class="os os-lin">LINUX</span> In your file manager press <kbd>Ctrl</kbd>+<kbd>F</kbd> and type.</div>
+</div>
+
+<div class="card"><b>Next steps:</b> use the <b>❓ Tutorial</b> button's <b>What's this?</b> mode to learn any button, and see <b>README.md</b> for every feature:
+Review / edit tagged, the Animals page (mark a buck harvested), and <b>Tools → Settings</b> to change the file name format and animal buttons.</div>
+
+<h2 class="page-break"><span class="n">8</span>If something doesn't work</h2>
+<table>
+  <tr><th style="width:38%">Problem</th><th>Fix</th></tr>
+  <tr><td><span class="os os-win sm">WINDOWS</span> Double-clicking <b>Trail Cam Tagger.pyw</b> opens Notepad or asks which app to use.</td>
+      <td>Right-click it → <b>Open with</b> → <b>Choose another app</b> → <b>Python</b> (tick “Always use this app”). Or use <code>TrailCamTagger\Start Tagger.bat</code>.</td></tr>
+  <tr><td><span class="os os-win sm">WINDOWS</span> “Python is not installed”, or nothing happens.</td>
+      <td>Install Python again (step 2) and make sure <b>Add python.exe to PATH</b> is ticked.</td></tr>
+  <tr><td><span class="os os-mac sm">MAC</span> “Start on Mac.command can't be opened.”</td>
+      <td>Right-click it → <b>Open</b> → <b>Open</b>. macOS only asks the first time.</td></tr>
+  <tr><td><span class="os os-mac sm">MAC</span> The Terminal says Python isn't installed.</td>
+      <td>Install Python from python.org (step 2), then double-click the file again.</td></tr>
+  <tr><td><span class="os os-lin sm">LINUX</span> The Terminal mentions <i>tkinter</i>, <i>venv</i> or <i>ensurepip</i>.</td>
+      <td>Run the install command in step 2, then start the program again.</td></tr>
+  <tr><td><span class="os os-lin sm">LINUX</span> <b>Start on Linux.sh</b> opens in a text editor.</td>
+      <td>In a terminal inside the Trail Cams folder: <code>chmod +x "Start on Linux.sh"</code> then <code>./"Start on Linux.sh"</code>.</td></tr>
+  <tr><td>“Couldn't install the add-ons.”</td>
+      <td>Check the internet connection and start the program again. If you installed a brand-new Python version, try the previous one from python.org.</td></tr>
+  <tr><td>A clip won't play.</td>
+      <td>Check it plays in your computer's normal video player. Very unusual formats may not be supported.</td></tr>
+  <tr><td>The spreadsheet doesn't update.</td>
+      <td>Close <code>Clip Log.xlsx</code> in Excel (or Numbers / LibreOffice). It updates as soon as it's closed.</td></tr>
+  <tr><td>Something else went wrong.</td>
+      <td>Details are saved in <code>TrailCamTagger\error_log.txt</code>. Send that file to whoever helps you.</td></tr>
+</table>
+
+
+
+</body>
+
+</html>

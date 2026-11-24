@@ -1,4 +1,3 @@
-[CONTRIBUTING.md](https://github.com/user-attachments/files/35348801/CONTRIBUTING.md)
 # Contributing to Trail Cam Tagger
 
 Welcome! We're happy you want to help. Trail Cam Tagger is a community project, and contributions of every size are welcome: bug reports, ideas, documentation, testing on your computer, and code.
@@ -30,7 +29,9 @@ Please follow our [Code of Conduct](CODE_OF_CONDUCT.md) in all project spaces.
 
 ## Reporting bugs
 
-Open an issue and include:
+> **Found a security problem?** Please don't open a public issue. Follow the [Security Policy](.github/SECURITY.md) to report it privately.
+
+For everything else, open an issue and include:
 1. Your operating system (Windows 10/11, macOS version, Linux distribution).
 2. Your Python version (`python --version`, or `python3 --version`).
 3. What you did, what you expected, and what happened instead.
@@ -161,6 +162,8 @@ Users can add their own buttons in Settings, but to change the defaults that new
 - Anything that differs between computers is labeled **Windows / macOS / Linux** inside the step it belongs to, not in a separate section.
 
 ## Pull requests
+
+When you open a pull request, a template fills in the description box. Please complete it.
 
 1. Keep each pull request focused on one change.
 2. Write a clear title and description: what changed, why, and how you tested it (with your OS).

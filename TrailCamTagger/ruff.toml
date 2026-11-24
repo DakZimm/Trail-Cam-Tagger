@@ -1,0 +1,10 @@
+# Code checks for Trail Cam Tagger.  Run from the repository root:  ruff check TrailCamTagger
+line-length = 120
+target-version = "py310"
+
+[lint]
+# pycodestyle errors, Pyflakes (unused/undefined names), import sorting, common bug patterns
+select = ["E4", "E7", "E9", "F", "I", "B"]
+ignore = [
+    "B023",  # lambdas in loops bind values on purpose via default arguments
+]
