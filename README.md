@@ -1,5 +1,5 @@
-[README.md](https://github.com/user-attachments/files/35345026/README.md)
-# Trail-Cam-Tagger
+# Trail Cam Tagger
+
 Trail camera clip organizer: watch each video or photo, tag deer (points, left×right, nicknames), turkeys and more, and it renames files, sorts them into folders, and logs everything to a spreadsheet. Tracks individual bucks across seasons. Free and offline, for Windows/Mac/Linux.
 
 ![License: AGPL v3](https://img.shields.io/badge/license-AGPL%20v3-blue)
@@ -24,6 +24,7 @@ Free, offline and private: your clips never leave your computer.
 - [Keyboard shortcuts](#keyboard-shortcuts)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
+- [Acknowledgements](#acknowledgements)
 - [License](#license)
 
 ## Features
@@ -163,6 +164,7 @@ Contributions are welcome: bug reports, ideas, documentation and code.
 
 - **Bugs and ideas:** open an [issue](../../issues). For bugs, include your OS, Python version, what you did, and `TrailCamTagger/error_log.txt` if there is one.
 - **Code:** fork the repo, make your change on a branch, and open a pull request with a short description and how you tested it. Please keep changes focused and test on your OS.
+- **AI-assisted contributions are welcome.** Please mention in your pull request if AI tools helped write the change, and make sure you've read, understood and tested it yourself. Every pull request is reviewed by a person before it's merged.
 
 ### Running from source
 ```bash
@@ -182,6 +184,12 @@ python3 "Trail Cam Tagger.pyw"                          # Windows: double-click 
 | `Start on Mac.command`, `Start on Linux.sh`, `TrailCamTagger/Start Tagger.bat` | Platform starters |
 
 Dependencies: Python 3.10+ with Tkinter, [opencv-python](https://pypi.org/project/opencv-python/), [Pillow](https://pypi.org/project/pillow/), [openpyxl](https://pypi.org/project/openpyxl/).
+
+## Acknowledgements
+
+Trail Cam Tagger was designed and tested by its author and developed with the help of Claude, an AI assistant made by Anthropic. Contributions are reviewed and tested by people before being merged.
+
+The screenshots use a computer-drawn stand-in image rather than a real trail camera photo.
 
 ## License
 
